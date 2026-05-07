@@ -5,17 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shadow Recover</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:black;
+background:#050816;
 color:white;
 overflow-x:hidden;
 }
@@ -26,123 +30,230 @@ position:fixed;
 width:100%;
 height:100%;
 background:
-radial-gradient(circle at top, #00ffff22, transparent 40%),
-radial-gradient(circle at bottom, #00ffff11, transparent 40%);
+radial-gradient(circle at top left,#00ffff22,transparent 30%),
+radial-gradient(circle at bottom right,#7c3aed33,transparent 35%);
 z-index:-1;
 }
 
-.container{
-max-width:900px;
-margin:auto;
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 padding:30px;
+}
+
+.hero-box{
+max-width:1100px;
+width:100%;
+background:rgba(17,24,39,0.8);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(14px);
+padding:50px;
+border-radius:30px;
+box-shadow:0 0 40px rgba(0,255,255,0.15);
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:30px;
+}
+
+.left{
+flex:1;
+}
+
+.right{
+flex:1;
+display:flex;
+justify-content:center;
 }
 
 .logo{
-text-align:center;
-font-size:65px;
-font-weight:bold;
-color:cyan;
-text-shadow:0 0 20px cyan;
-margin-top:40px;
+font-size:72px;
+font-weight:700;
+line-height:1.1;
+background:linear-gradient(to right,#00ffff,#7c3aed);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.tag{
-text-align:center;
-color:#94a3b8;
-margin-top:10px;
-font-size:18px;
+.tagline{
+margin-top:18px;
+font-size:20px;
+color:#cbd5e1;
+line-height:1.8;
 }
 
-.box{
-background:#0f172a;
-padding:30px;
-border-radius:20px;
-margin-top:40px;
-box-shadow:0 0 25px #00ffff44;
+.badge{
+display:inline-block;
+padding:10px 18px;
+background:#111827;
+border:1px solid rgba(0,255,255,0.3);
+border-radius:50px;
+margin-top:25px;
+color:#00ffff;
+font-size:14px;
+}
+
+.hero-img{
+width:100%;
+max-width:420px;
+filter:drop-shadow(0 0 25px #00ffff66);
+}
+
+.section{
+margin-top:60px;
 }
 
 .section-title{
-font-size:28px;
-margin-bottom:20px;
-color:cyan;
+font-size:32px;
+margin-bottom:25px;
+color:#00ffff;
 }
 
-.service{
-background:#111827;
-padding:20px;
-margin-top:15px;
-border-radius:15px;
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:#0f172a;
+padding:25px;
+border-radius:22px;
 transition:0.3s;
+border:1px solid rgba(255,255,255,0.05);
 }
 
-.service:hover{
-transform:scale(1.03);
-box-shadow:0 0 15px cyan;
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 20px rgba(0,255,255,0.3);
 }
 
-.price{
-margin-top:10px;
-color:cyan;
-font-weight:bold;
-}
-
-input, textarea{
-
-width:100%;
-
-padding:15px;
-
+.card h3{
+font-size:24px;
 margin-top:15px;
+}
 
+.card p{
+margin-top:12px;
+color:#94a3b8;
+line-height:1.7;
+font-size:15px;
+}
+
+.icon{
+font-size:42px;
+}
+
+.form-box{
+background:#0f172a;
+padding:35px;
+border-radius:25px;
+margin-top:25px;
+}
+
+label{
+display:block;
+margin-top:18px;
+margin-bottom:8px;
+color:#cbd5e1;
+}
+
+input,select,textarea{
+width:100%;
+padding:16px;
+background:#111827;
 border:none;
-
-border-radius:12px;
-
-background:#1e293b;
-
+border-radius:14px;
 color:white;
+font-size:15px;
+outline:none;
+}
 
-font-size:16px;
+textarea{
+resize:none;
 }
 
 button{
-
 width:100%;
-
-padding:15px;
-
-margin-top:20px;
-
-background:cyan;
-
+padding:17px;
+margin-top:25px;
 border:none;
-
-border-radius:12px;
-
+border-radius:14px;
+background:linear-gradient(to right,#00ffff,#7c3aed);
+color:white;
 font-size:18px;
-
-font-weight:bold;
-
+font-weight:600;
 cursor:pointer;
-
 transition:0.3s;
 }
 
 button:hover{
-transform:scale(1.03);
-box-shadow:0 0 20px cyan;
+transform:scale(1.02);
+box-shadow:0 0 25px rgba(0,255,255,0.35);
 }
 
-.contact{
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#111827;
+padding:30px;
+border-radius:20px;
 text-align:center;
-margin-top:30px;
-font-size:20px;
+width:90%;
+max-width:420px;
+display:none;
+box-shadow:0 0 35px rgba(0,255,255,0.25);
+z-index:999;
+}
+
+.popup h2{
+color:#00ffff;
+margin-bottom:15px;
+}
+
+.popup p{
+color:#cbd5e1;
+line-height:1.7;
+}
+
+.overlay{
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+top:0;
+left:0;
+display:none;
+z-index:998;
 }
 
 .footer{
 text-align:center;
-margin-top:30px;
-color:gray;
+padding:35px;
+color:#64748b;
+font-size:14px;
+}
+
+@media(max-width:768px){
+.logo{
+font-size:48px;
+}
+
+.hero-box{
+padding:25px;
+}
+
+.tagline{
+font-size:17px;
+}
 }
 
 </style>
@@ -150,77 +261,151 @@ color:gray;
 
 <body>
 
-<div class="container">
+<div class="hero">
+<div class="hero-box">
 
+<div class="top">
+
+<div class="left">
 <div class="logo">
 Shadow Recover
 </div>
 
-<div class="tag">
-Secure Cyber Recovery Support
+<div class="tagline">
+Premium cyber recovery support platform for secure account assistance and owner verification.
 </div>
 
-<div class="box">
+<div class="badge">
+Secure • Professional • Fast Response
+</div>
+</div>
 
+<div class="right">
+<img class="hero-img" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+</div>
+
+</div>
+
+<div class="section">
 <div class="section-title">
-Services
+Recovery Services
 </div>
 
-<div class="service">
-Free Fire Recovery
-<div class="price">₹199 - ₹999</div>
+<div class="cards">
+
+<div class="card">
+<div class="icon">🔐</div>
+<h3>Gmail Recovery</h3>
+<p>Secure assistance for recovering compromised Gmail accounts.</p>
 </div>
 
-<div class="service">
-Facebook Recovery
-<div class="price">₹299 - ₹1499</div>
+<div class="card">
+<div class="icon">📘</div>
+<h3>Facebook Recovery</h3>
+<p>Help for locked, disabled, or compromised Facebook accounts.</p>
 </div>
 
-<div class="service">
-Instagram Recovery
-<div class="price">₹299 - ₹1999</div>
+<div class="card">
+<div class="icon">📸</div>
+<h3>Instagram Recovery</h3>
+<p>Support for hacked or inaccessible Instagram profiles.</p>
 </div>
 
-<div class="service">
-Gmail Recovery
-<div class="price">₹499 - ₹2499</div>
+<div class="card">
+<div class="icon">🛡️</div>
+<h3>Security Support</h3>
+<p>Guidance for securing accounts with owner verification.</p>
 </div>
 
 </div>
+</div>
 
-<div class="box">
-
+<div class="section">
 <div class="section-title">
 Submit Recovery Request
 </div>
 
-<input type="text" placeholder="Your Name">
+<div class="form-box">
 
-<input type="text" placeholder="UID / Username">
+<form id="recoveryForm">
 
-<textarea rows="5"
-placeholder="Describe your issue"></textarea>
+<label>Your Name</label>
+<input type="text" required>
 
-<button>
+<label>Phone Number</label>
+<input type="tel" required>
+
+<label>Contact Gmail</label>
+<input type="email" required>
+
+<label>Select Service</label>
+<select required>
+<option>Choose Service</option>
+<option>Gmail Recovery</option>
+<option>Facebook Recovery</option>
+<option>Instagram Recovery</option>
+<option>Security Support</option>
+</select>
+
+<label>Select Support Specialist</label>
+<select required>
+<option>Choose Specialist</option>
+<option>Shadow Alpha</option>
+<option>Cyber Ghost</option>
+<option>Dark Matrix</option>
+<option>Night Watch</option>
+</select>
+
+<label>Describe Your Problem</label>
+<textarea rows="6" required></textarea>
+
+<button type="submit">
 Submit Request
 </button>
 
-<div class="contact">
-
-Contact Support:
-<br><br>
-
-srcybershell@gmail.com
+</form>
 
 </div>
+</div>
 
+</div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="popup" id="popup">
+<h2>Request Submitted</h2>
+<p>
+Please wait. Our support specialists will contact you soon after reviewing your request.
+</p>
 </div>
 
 <div class="footer">
-Owner Verification Required
+Shadow Recover © 2026 | Owner Verification Required
 </div>
 
-</div>
+<script>
+
+const form=document.getElementById('recoveryForm');
+const popup=document.getElementById('popup');
+const overlay=document.getElementById('overlay');
+
+form.addEventListener('submit',function(e){
+e.preventDefault();
+
+popup.style.display='block';
+overlay.style.display='block';
+
+form.reset();
+
+setTimeout(()=>{
+popup.style.display='none';
+overlay.style.display='none';
+},5000);
+
+});
+
+</script>
 
 </body>
 </html>
